@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "school")
-public class School  
+public class School
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
