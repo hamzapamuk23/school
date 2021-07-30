@@ -6,7 +6,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 @Entity
 @Table(name = "student")
@@ -30,6 +36,12 @@ public class Student {
 
     @Column(nullable = false)
     private Double gpa;
+    
+    @ManyToOne()
+    @RestResource(exported = false)
+    @JoinColumn(name = "school_id")
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    private School school;
     
     public Student(){}
 

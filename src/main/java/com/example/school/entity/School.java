@@ -29,7 +29,7 @@ public class School
     private boolean active;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "school")
-    private List<Student> students;
+    private List<Student> student;
 
  
     public School(){}
