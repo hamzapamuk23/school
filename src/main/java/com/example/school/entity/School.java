@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @Table(name = "school")
 public class School
@@ -28,6 +31,7 @@ public class School
     @Column(columnDefinition="boolean default false",nullable = false)
     private boolean active;
 
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "school")
     private List<Student> student;
 
@@ -39,7 +43,6 @@ public class School
         this.name = name;
         this.code = code;
         this.active = active;
-        
     }
 
     public Long getId() {

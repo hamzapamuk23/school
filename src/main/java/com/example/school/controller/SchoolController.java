@@ -1,9 +1,8 @@
 // package com.example.school.controller;
-
 // import java.util.List;
-// import com.example.school.entity.Student;
-// import com.example.school.service.StudentService;
 
+// import com.example.school.entity.School;
+// import com.example.school.service.SchoolService;
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.http.HttpStatus;
 // import org.springframework.http.ResponseEntity;
@@ -18,47 +17,47 @@
 
 // @RequestMapping("/student")
 // @RestController
-// public class StudentController 
+// public class SchoolController 
 // {
 //     @Autowired
-//     StudentService studentService;
+//     SchoolService schoolService;
 
 //     @GetMapping("")
-//     List<Student> all()
+//     List<School> all()
 //     {
-//         return studentService.getAllStudents();
+//         return schoolService.getAllSchools();
 //     }
 //     @GetMapping("/getById")
-//     public Student getId(@RequestParam("id") Long id)
+//     public School getId(@RequestParam("id") Long id)
 //     {
-//         return studentService.getById(id);
+//         return schoolService.getById(id);
 //     }
 
 //     @PostMapping("")
-//     public ResponseEntity<String> addStudent(@RequestBody Student student)
+//     public ResponseEntity<String> addSchool(@RequestBody School School)
 //     {
-//         studentService.add(student);
-//         return new ResponseEntity<>("Student Added" , HttpStatus.CREATED) ;
+//         schoolService.add(School);
+//         return new ResponseEntity<>("School Added" , HttpStatus.CREATED) ;
 //     }
 
 //     @DeleteMapping("")
-//     public ResponseEntity<String> deleteStudent(@RequestParam("id") Long id)
+//     public ResponseEntity<String> deleteSchool(@RequestParam("id") Long id)
 //     {
-//         studentService.delete(id);
-//         return new ResponseEntity<>("Student Deleted" , HttpStatus.OK) ;
+//         schoolService.delete(id);
+//         return new ResponseEntity<>("School Deleted" , HttpStatus.OK) ;
 //     }
 //     @DeleteMapping("/allDelete")
-//     public ResponseEntity<String> deleteAllStudent()
+//     public ResponseEntity<String> deleteAllSchool()
 //     {
-//         studentService.alldelete();
+//         schoolService.alldelete();
 //         return new ResponseEntity<>("All Deleted Respository" , HttpStatus.NO_CONTENT) ;
 //     }
 
 //     @PutMapping("")
-//     public ResponseEntity<String> updateStudent(@RequestBody Student student)
+//     public ResponseEntity<String> updateSchool(@RequestBody School School)
 //     {
-//         studentService.update(student);
-//         return new ResponseEntity<>("Student Registration Updated" , HttpStatus.OK) ;
+//         schoolService.update(School);
+//         return new ResponseEntity<>("School Registration Updated" , HttpStatus.OK) ;
 //     }
     
 // }
