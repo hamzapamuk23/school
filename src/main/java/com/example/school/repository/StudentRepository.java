@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(path = "student")
 public interface StudentRepository extends JpaRepository<Student,Long>
 {
-    @Query("SELECT s from Student s WHERE LOWER(s.name) LIKE LOWER(concat('%', concat(:name,'%'))) AND LOWER(s.surname) LIKE LOWER(concat('%', concat(:surname,'%'))) AND LOWER(s.number) LIKE LOWER(concat('%', concat(:number,'%'))) AND (s.age=:age OR s.age is null) AND (s.gpa=:gpa OR s.gpa is null) AND LOWER(s.school.name) LIKE LOWER(concat('%', concat(:schoolName,'%'))) " )
+    @Query("SELECT s from Student s WHERE LOWER(s.name) LIKE LOWER(concat('%', concat(:name,concat('%')))) AND LOWER(s.surname) LIKE LOWER(concat('%', concat(:surname,concat('%')))) AND LOWER(s.number) LIKE LOWER(concat('%', concat(:number,concat('%')))) AND LOWER(s.school.name) LIKE LOWER(concat('%', concat(:schoolName,concat('%')))) AND (s.age=:age OR s.age is null) AND (s.gpa=:gpa OR s.gpa is null) " )
     List<Student> findAllSearch(@Param("name") String name,
         @Param("surname") String surname,
         @Param("number") String number,

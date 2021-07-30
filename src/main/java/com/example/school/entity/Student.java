@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 @Entity
@@ -37,17 +40,19 @@ public class Student {
     @ManyToOne()
     @RestResource(exported = false)
     @JoinColumn(name = "school_id")
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     private School school;
     
-    public Student(){}
+    public Student() {}
 
-    public Student(Long id, String name, String surname, String number, Integer age, Double gpa) {
+    public Student(Long id, String name, String surname, String number, Integer age, Double gpa, School school) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.number = number;
         this.age = age;
         this.gpa = gpa;
+        this.school = school;
     }
 
     public Long getId() {
@@ -97,5 +102,14 @@ public class Student {
     public void setGpa(Double gpa) {
         this.gpa = gpa;
     }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+    
 }
 
