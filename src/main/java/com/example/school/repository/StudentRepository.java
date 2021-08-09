@@ -1,7 +1,8 @@
 package com.example.school.repository;
-import java.util.List;
 
+import java.util.List;
 import com.example.school.entity.Student;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,7 +21,8 @@ public interface StudentRepository extends JpaRepository<Student,Long>
         @Param("number") String number,
         @Param("age") Integer age,
         @Param("gpa") Double gpa,
-        @Param("schoolName") String schoolName);
+        @Param("schoolName") String schoolName,
+        Pageable p);
 
 
     //List<Student> findAll(); 
