@@ -9,11 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.rest.core.annotation.RestResource;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "student")
 public class Student {
@@ -42,74 +43,5 @@ public class Student {
     @JoinColumn(name = "school_id")
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     private School school;
-    
-    public Student() {}
-
-    public Student(Long id, String name, String surname, String number, Integer age, Double gpa, School school) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.number = number;
-        this.age = age;
-        this.gpa = gpa;
-        this.school = school;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Double getGpa() {
-        return gpa;
-    }
-
-    public void setGpa(Double gpa) {
-        this.gpa = gpa;
-    }
-
-    public School getSchool() {
-        return school;
-    }
-
-    public void setSchool(School school) {
-        this.school = school;
-    }
-    
 }
 
