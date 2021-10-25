@@ -13,8 +13,10 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.rest.core.annotation.RestResource;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "student")
 public class Student {
