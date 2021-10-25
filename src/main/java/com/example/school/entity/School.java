@@ -11,7 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "school")
 public class School
@@ -23,7 +27,7 @@ public class School
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false,length = 6)
+    @Column(nullable = false,length = 6 ,unique = true)
     private String code;
  
     @Column(columnDefinition="boolean default false",nullable = false)
@@ -31,68 +35,4 @@ public class School
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "school")
     private List<Student> student;
-
- 
-    public School(){}
-
-
-    public School(Long id, String name, String code, boolean active, List<Student> student) {
-        this.id = id;
-        this.name = name;
-        this.code = code;
-        this.active = active;
-        this.student = student;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public String getCode() {
-        return code;
-    }
-
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-
-    public boolean isActive() {
-        return active;
-    }
-
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-
-    public List<Student> getStudent() {
-        return student;
-    }
-
-
-    public void setStudent(List<Student> student) {
-        this.student = student;
-    }
-
-    
 }
